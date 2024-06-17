@@ -1,0 +1,60 @@
+﻿@page "/settings/blog/{blogId:int?}"
+@model PageModels.Settings.BlogModel
+@{
+	Layout = "_StandardLayout";
+}
+<div class="n-page_content">
+	<div class="n-toolbar">
+		<a asp-page="@Paths.Pages.Settings.BlogList" class="n-toolbar_back">Blog List</a>
+	</div>
+	<h1>
+		<span>Blog</span>
+	</h1>
+	<div>
+		<form method="post">
+@if (Model.Blog is not null)
+{
+			<div class="n-form-item">
+				<label asp-for="Blog!.BlogId" class="n-label">BlogId</label>
+				<input disabled type="text" asp-for="Blog!.BlogId" class="n-input" />
+			</div>
+}
+			<div class="n-form-item">
+				<label asp-for="BlogForm.BlogName" class="n-label">BlogName</label>
+				<input type="text" asp-for="BlogForm.BlogName" class="n-input" />
+			</div>
+			<div class="n-form-item">
+				<label asp-for="BlogForm.Description" class="n-label">Description</label>
+				<input type="text" asp-for="BlogForm.Description" class="n-input" />
+			</div>
+@if (Model.Blog is not null)
+{
+			<div class="n-form-item">
+				<label asp-for="Blog!.CreatedDate" class="n-label">CreatedDate</label>
+				<input disabled type="text" asp-for="Blog!.CreatedDate" class="n-input" />
+			</div>
+			<div class="n-form-item">
+				<label asp-for="Blog!.UpdatedDate" class="n-label">UpdatedDate</label>
+				<input disabled type="text" asp-for="Blog!.UpdatedDate" class="n-input" />
+			</div>
+}
+			<div class="n-form-message">
+				<div asp-validation-summary="All" class="n-validation-summary">
+				</div>
+			</div>
+			<div class="n-form-action">
+@if (Model.Blog is not null)
+{
+				<button type="submit" asp-page-handler="Update" asp-route-id="@Model.Blog.BlogId"
+					class="n-btn">Update</button>
+				<button type="submit" asp-page-handler="Delete" asp-route-id="@Model.Blog.BlogId"
+					class="n-btn">Delete</button>
+}
+else
+{
+				<button type="submit" asp-page-handler="Insert" class="n-btn">Insert</button>
+}
+			</div>
+		</form>
+	</div>
+</div>

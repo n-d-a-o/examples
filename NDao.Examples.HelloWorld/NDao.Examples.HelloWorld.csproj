@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Daos\IAccountDao_GetAccountByName.sql" />
+    <None Remove="Daos\IBlogDao_GetArticleById.sql" />
+    <None Remove="Daos\IBlogDao_GetArticlesByBlogId.sql" />
+    <None Remove="Daos\IBlogDao_GetBlogsByAccountId.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Daos\IBlogDao_GetArticleById.sql" />
+    <AdditionalFiles Include="Daos\IBlogDao_GetArticlesByBlogId.sql" />
+    <AdditionalFiles Include="Daos\IBlogDao_GetBlogsByAccountId.sql" />
+    <AdditionalFiles Include="Daos\IAccountDao_GetAccountByName.sql" />
+    <AdditionalFiles Include="Daos\IInitializerDao_CreateArticles.sql" />
+    <AdditionalFiles Include="Daos\IInitializerDao_CreateBlogs.sql" />
+    <AdditionalFiles Include="Daos\IInitializerDao_CreateAccounts.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NDao" Version="0.2.1" />
+    <PackageReference Include="NDao.Database.Sqlite" Version="0.2.1" />
+    <PackageReference Include="NDao.Generator" Version="0.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

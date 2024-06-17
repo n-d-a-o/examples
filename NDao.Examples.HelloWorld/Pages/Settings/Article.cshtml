@@ -1,0 +1,70 @@
+﻿@page "/settings/article/{articleId:int?}"
+@model PageModels.Settings.ArticleModel
+@{
+	Layout = "_StandardLayout";
+}
+<div class="n-page_content">
+	<div class="n-toolbar">
+		<a asp-page="@Paths.Pages.Settings.ArticleList"
+		   asp-route-blogId="@(Model.Article is not null ? Model.Article.BlogId : null)"
+			class="n-toolbar_back">Article List</a>
+	</div>
+	<h1>
+		<span>Article</span>
+	</h1>
+	<div>
+		<form method="post">
+@if (Model.Article is not null)
+{
+			<div class="n-form-item">
+				<label asp-for="Article!.ArticleId" class="n-label">ArticleId</label>
+				<input disabled type="text" asp-for="Article!.ArticleId" class="n-input" />
+			</div>
+}
+			<div class="n-form-item">
+				<label asp-for="ArticleForm.BlogId" class="n-label">BlogId</label>
+				<input readonly type="text" asp-for="ArticleForm.BlogId" class="n-input" />
+			</div>
+			<div class="n-form-item">
+				<label asp-for="ArticleForm.Title" class="n-label">Title</label>
+				<input type="text" asp-for="ArticleForm.Title" class="n-input" />
+			</div>
+			<div class="n-form-item">
+				<label asp-for="ArticleForm.Content" class="n-label">Content</label>
+				<textarea asp-for="ArticleForm.Content" class="n-input"></textarea>
+			</div>
+@if (Model.Article is not null)
+{
+			<div class="n-form-item">
+				<label asp-for="Article!.Version" class="n-label">Version</label>
+				<input disabled type="text" asp-for="Article!.Version" class="n-input" />
+			</div>
+			<div class="n-form-item">
+				<label asp-for="Article!.CreatedDate" class="n-label">CreatedDate</label>
+				<input disabled type="text" asp-for="Article!.CreatedDate" class="n-input" />
+			</div>
+			<div class="n-form-item">
+				<label asp-for="Article!.UpdatedDate" class="n-label">UpdatedDate</label>
+				<input disabled type="text" asp-for="Article!.UpdatedDate" class="n-input" />
+			</div>
+}
+			<div class="n-form-message">
+				<div asp-validation-summary="All" class="n-validation-summary">
+				</div>
+			</div>
+			<div class="n-form-action">
+@if (Model.Article is not null)
+{
+				<button type="submit" asp-page-handler="Update" asp-route-articleId="@Model.Article.ArticleId"
+					class="n-btn">Update</button>
+				<button type="submit" asp-page-handler="Delete" asp-route-articleId="@Model.Article.ArticleId"
+					class="n-btn">Delete</button>
+}
+else
+{
+				<button type="submit" asp-page-handler="Insert" class="n-btn">Insert</button>
+}
+			</div>
+		</form>
+	</div>
+</div>

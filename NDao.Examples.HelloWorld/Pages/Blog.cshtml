@@ -1,0 +1,40 @@
+﻿@page "/blog/{blogId:int}"
+@model BlogModel
+@{
+	Layout = "_StandardLayout";
+}
+<div class="n-page_content">
+	<h1>
+		<span>@Model.Blog.BlogName</span>
+	</h1>
+	<div>
+		<span>@Model.Blog.Description</span>
+	</div>
+	<div class="n-mt-3">
+@foreach (Article article in Model.Articles)
+{
+		<div class="n-row">
+			<div class="n-col">
+				<div class="n-card">
+					<a asp-page="@Paths.Pages.Article"
+						asp-route-blogId="@Model.Blog.BlogId"
+						asp-route-articleId="@article.ArticleId"
+						class="n-card_link">
+						<div class="n-card_header">
+							<span>@article.Title</span>
+						</div>
+						<div class="n-card_content">
+							<div class="n-pt-3">
+								<span>@article.Content</span>
+							</div>
+							<div class="n-pt-3">
+								<span class="n-font-small">@article.UpdatedDate.ToString("yyyy-MM-dd HH:mm")</span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+}
+	</div>
+</div>

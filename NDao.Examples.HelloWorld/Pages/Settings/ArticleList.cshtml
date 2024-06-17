@@ -1,0 +1,73 @@
+﻿@page "/settings/article-list"
+@model PageModels.Settings.ArticleListModel
+@{
+	Layout = "_StandardLayout";
+}
+<div class="n-page_content">
+	<div class="n-toolbar">
+		<a asp-page="@Paths.Pages.Settings.Home" class="n-toolbar_back">Home</a>
+	</div>
+	<h1>
+		<span>Article List</span>
+	</h1>
+	<div>
+		<form method="get" id="blogForm">
+			<div class="n-form-item">
+				<label asp-for="BlogForm.BlogId" class="n-label n-label-short">Blog</label>
+				<select name="blogId" asp-for="BlogForm.BlogId" asp-items="Model.BlogListItems"
+					class="n-input"></select>
+			</div>
+		</form>
+	</div>
+	<div class="n-mt-6">
+		<a asp-page="@Paths.Pages.Settings.Article" asp-route-blogId="@Model.BlogForm.BlogId"
+			class="n-btn">Create</a>
+	</div>
+	<div class="n-mt-3">
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>@Html.DisplayNameFor(model => model.Header.ArticleId)</th>
+					<th>@Html.DisplayNameFor(model => model.Header.Title)</th>
+					<th>@Html.DisplayNameFor(model => model.Header.Content)</th>
+					<th>@Html.DisplayNameFor(model => model.Header.Version)</th>
+					<th>@Html.DisplayNameFor(model => model.Header.CreatedDate)</th>
+					<th>@Html.DisplayNameFor(model => model.Header.UpdatedDate)</th>
+				</tr>
+			</thead>
+			<tbody>
+@foreach (Article article in Model.Articles)
+{
+				<tr>
+					<td>
+						<a asp-page="@Paths.Pages.Settings.Article" asp-route-articleId="@article.ArticleId"
+							class="n-btn n-btn-small">Edit</a>
+					</td>
+					<td>@article.ArticleId</td>
+					<td>@article.Title</td>
+					<td>@article.Content</td>
+					<td>@article.Version</td>
+					<td>@article.CreatedDate.ToString("yyyy-MM-dd HH:mm")</td>
+					<td>@article.UpdatedDate.ToString("yyyy-MM-dd HH:mm")</td>
+				</tr>
+}
+			</tbody>
+		</table>
+	</div>
+</div>
+			
+@section Scripts
+{
+<script>
+document.addEventListener('DOMContentLoaded', function ()
+{
+	const blogForm = document.querySelector('#blogForm');
+	const blogSelect = blogForm.querySelector('select');
+	blogSelect.addEventListener('change', function (event)
+	{
+		blogForm.submit();
+	});
+});
+</script>
+}
