@@ -5,17 +5,17 @@
 	<div class="n-page_header">
 		<div class="n-page_header_content">
 			<div class="n-page_header_title">
-				<a asp-page="@Paths.Pages.Index">Hello World</a>
+				<a asp-page="@Routes.App.Index">Blog App</a>
 			</div>
 			<div class="n-page_header_action">
 @if (Model.HasAccount)
 {
-				<a asp-page="@Paths.Pages.Settings.Home" class="n-btn n-btn-outlined">Settings</a>
+				<a asp-page="@Routes.App.Settings.Home" class="n-btn n-btn-outlined">Settings</a>
 				<button id="signoutButton" class="n-btn n-btn-outlined n-ml-2">Sign out</button>
 }
 else
 {
-				<a asp-page="@Paths.Pages.Signin" asp-route-to="@Model.To" class="n-btn">Sign in</a>
+				<a asp-page="@Routes.App.Signin" asp-route-to="@Model.To" class="n-btn">Sign in</a>
 }
 			</div>
 		</div>
@@ -32,18 +32,17 @@ document.addEventListener('DOMContentLoaded', function ()
 {
 	const signoutButton = document.getElementById('signoutButton');
 	const signoutForm = document.getElementById('signoutForm');
-	if (!signoutButton || !signoutForm)
+	if (signoutButton && signoutForm)
 	{
-		return;
-	}
-	signoutButton.addEventListener('click', function (event)
-	{
-		event.preventDefault();
-		if (confirm('Are you sure you want to sign out?'))
+		signoutButton.addEventListener('click', function (event)
 		{
-			signoutForm.submit();
-		}
-	});
+			event.preventDefault();
+			if (confirm('Are you sure you want to sign out?'))
+			{
+				signoutForm.submit();
+			}
+		});
+	}
 });
 </script>
 @RenderSection("Scripts", required: false)

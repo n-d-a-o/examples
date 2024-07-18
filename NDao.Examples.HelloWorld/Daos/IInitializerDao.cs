@@ -13,4 +13,7 @@ public interface IInitializerDao
 
 	[Affect]
 	void CreateArticles();
+
+	[Affect]
+	void CreatePersons();
 }

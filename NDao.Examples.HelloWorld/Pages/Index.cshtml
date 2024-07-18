@@ -1,41 +1,30 @@
-﻿@page
+﻿@page "/"
 @model IndexModel
 @{
-	Layout = "_StandardLayout";
+	Layout = "_SimpleLayout";
 }
 <div class="n-page_content">
-	<div class="n-blog-list n-row">
-@foreach (Blog blog in Model.Blogs)
-{
-		<div class="n-blog n-col n-col-6">
-			<div class="n-card">
-				<a asp-page="@Paths.Pages.Blog" asp-route-blogId="@blog.BlogId" class="n-card_link">
-					<div class="n-card_header">
-						<span>@blog.BlogName</span>
-					</div>
-					<div class="n-card_content">
-						<span>@blog.Description</span>
-					</div>
-				</a>
-			</div>
+	<div>
+		<div class="n-mt-3">
+			<a asp-page="@Routes.App.Index" class="n-link n-font-large">Blog App</a>
 		</div>
-}
+		<div class="n-mt-3">
+			<a asp-page="@Routes.SqlExecutionMethod" class="n-link n-font-large">SQL Execution Method</a>
+		</div>
+		<div class="n-mt-3">
+			<a asp-page="@Routes.DaoMethodParameter" class="n-link n-font-large">Dao Method Parameter</a>
+		</div>
+		<div class="n-mt-3">
+			<a asp-page="@Routes.DaoMethodResult" class="n-link n-font-large">Dao Method Result</a>
+		</div>
+		<div class="n-mt-3">
+			<a asp-page="@Routes.Transaction" class="n-link n-font-large">Transaction</a>
+		</div>
 	</div>
 </div>
 
 @section Styles
 {
 <style>
-
-.n-blog-list
-{
-	margin-top: 12px;
-}
-
-.n-blog
-{
-	height: 300px;
-}
-
 </style>
 }

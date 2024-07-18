@@ -1,0 +1,75 @@
+﻿@page "/dao-method-result"
+@model PageModels.DaoMethodResultModel
+@{
+	Layout = "_SimpleLayout";
+}
+<div class="n-page_content">
+	<div class="n-toolbar">
+		<a asp-page="@Routes.Index" class="n-toolbar_back">Index</a>
+	</div>
+	<h1>
+		<span>Dao Method Result</span>
+	</h1>
+	<div class="n-pb-6">
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>string</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="String" class="n-btn">Get Now</button>
+						<input type="hidden" name="handler" value="String" />
+						<span class="n-ml-1">@Model.TextString</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>DateTime</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="DateTime" class="n-btn">Get Now</button>
+						<input type="hidden" name="handler" value="DateTime" />
+						<span class="n-ml-1">@Model.TextDateTime</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Tuple</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="Tuple" class="n-btn">Get Person</button>
+						<input type="hidden" name="handler" value="Tuple" />
+						<span class="n-ml-1">@Model.TextTuple</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Dto</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="Dto" class="n-btn">Get Person</button>
+						<input type="hidden" name="handler" value="Dto" />
+						<span class="n-ml-1">@Model.TextDto</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,69 @@
+﻿@page "/transaction"
+@model PageModels.TransactionModel
+@{
+	Layout = "_SimpleLayout";
+}
+<div class="n-page_content">
+	<div class="n-toolbar">
+		<a asp-page="@Routes.Index" class="n-toolbar_back">Index</a>
+	</div>
+	<h1>
+		<span>Transaction</span>
+	</h1>
+	<div class="n-pb-6">
+		<div class="n-mt-6">
+			<table>
+				<tr>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Id)</th>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Name)</th>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Age)</th>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Occupation)</th>
+				</tr>
+@foreach (Person person in Model.TableRows)
+{
+				<tr>
+					<td>@person.Id</td>
+					<td>@person.Name</td>
+					<td>@person.Age</td>
+					<td>@person.Occupation</td>
+				</tr>
+}
+			</table>
+			<div class="n-mt-3">
+				<form method="post">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="Reset" class="n-btn">Reset</button>
+					</div>
+				</form>
+			</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Commit</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="post">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="Commit" class="n-btn">Commit</button>
+					</div>
+				</form>
+				<div class="n-py-3">
+					<span class="n-code">@Model.TextCommit</span>
+				</div>
+			</div>
+			<h3>
+				<span>Rollback</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="post">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="Rollback" class="n-btn">Rollback</button>
+					</div>
+				</form>
+				<div class="n-py-3">
+					<span class="n-code">@Model.TextRollback</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

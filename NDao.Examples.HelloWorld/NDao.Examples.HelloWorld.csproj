@@ -11,9 +11,33 @@
     <None Remove="Daos\IBlogDao_GetArticleById.sql" />
     <None Remove="Daos\IBlogDao_GetArticlesByBlogId.sql" />
     <None Remove="Daos\IBlogDao_GetBlogsByAccountId.sql" />
+    <None Remove="Daos\IInitializerDao_CreatePersons.sql" />
+    <None Remove="Daos\ISampleDao_Affect.sql" />
+    <None Remove="Daos\ISampleDao_Delete.sql" />
+    <None Remove="Daos\ISampleDao_GetDateTime.sql" />
+    <None Remove="Daos\ISampleDao_GetDto.sql" />
+    <None Remove="Daos\ISampleDao_GetString.sql" />
+    <None Remove="Daos\ISampleDao_GetTuple.sql" />
+    <None Remove="Daos\ISampleDao_Query.sql" />
+    <None Remove="Daos\ISampleDao_Search.sql" />
+    <None Remove="Daos\ISampleDao_SearchByComplexParameter.sql" />
+    <None Remove="Daos\ISampleDao_Single.sql" />
+    <None Remove="Daos\ISampleDao_SingleOrDefault.sql" />
   </ItemGroup>
 
   <ItemGroup>
+    <AdditionalFiles Include="Daos\IInitializerDao_CreatePersons.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_GetString.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_GetDateTime.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_GetDto.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_GetTuple.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_Delete.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_SearchByComplexParameter.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_Search.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_Single.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_Query.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_SingleOrDefault.sql" />
+    <AdditionalFiles Include="Daos\ISampleDao_Affect.sql" />
     <AdditionalFiles Include="Daos\IBlogDao_GetArticleById.sql" />
     <AdditionalFiles Include="Daos\IBlogDao_GetArticlesByBlogId.sql" />
     <AdditionalFiles Include="Daos\IBlogDao_GetBlogsByAccountId.sql" />
@@ -24,16 +48,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NDao" Version="0.2.1" />
-    <PackageReference Include="NDao.Database.Sqlite" Version="0.2.1" />
-    <PackageReference Include="NDao.Generator" Version="0.2.1">
+    <PackageReference Include="NDao" Version="0.2.2" />
+    <PackageReference Include="NDao.Database.Sqlite" Version="0.2.2" />
+    <PackageReference Include="NDao.Generator" Version="0.2.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,123 @@
+﻿@page "/dao-method-parameter"
+@model PageModels.DaoMethodParameterModel
+@{
+	Layout = "_SimpleLayout";
+}
+<div class="n-page_content">
+	<div class="n-toolbar">
+		<a asp-page="@Routes.Index" class="n-toolbar_back">Index</a>
+	</div>
+	<h1>
+		<span>Dao Method Parameter</span>
+	</h1>
+	<div class="n-pb-6">
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Simple Parameters</span>
+			</h3>
+			<div class="n-my-6">
+<div class="n-code">-- [Dao SQL]
+...
+--# if (@@name is not null) {
+	and Name like /*@@name*/'%A%'
+--# }
+...
+</div>
+			</div>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-item">
+						<label asp-for="FormSimple.Name" class="n-label">Name</label>
+						<input type="text" asp-for="FormSimple.Name" class="n-input" />
+					</div>
+					<div class="n-form-item">
+						<label asp-for="FormSimple.Age" class="n-label">Age</label>
+						<input type="number" asp-for="FormSimple.Age" class="n-input" />
+					</div>
+					<div class="n-form-item">
+						<label asp-for="FormSimple.Occupation" class="n-label">Occupation</label>
+						<input type="text" asp-for="FormSimple.Occupation" class="n-input" />
+					</div>
+					<div class="n-form-action">
+						<button type="submit" class="n-btn">Search</button>
+						<input type="hidden" name="handler" value="Simple" />
+					</div>
+				</form>
+			</div>
+			<div class="n-mt-3">
+				<table>
+					<tr>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Id)</th>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Name)</th>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Age)</th>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Occupation)</th>
+					</tr>
+@foreach (Person person in Model.TableRowsSimple)
+{
+					<tr>
+						<td>@person.Id</td>
+						<td>@person.Name</td>
+						<td>@person.Age</td>
+						<td>@person.Occupation</td>
+					</tr>
+}
+				</table>
+			</div>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Complex Parameters</span>
+			</h3>
+			<div class="n-my-6">
+<div class="n-code">-- [Dao SQL]
+...
+--# if (@@condition.Name is not null) {
+	and Name like /*@@condition.Name*/'%A%'
+--# }
+...
+</div>
+			</div>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-item">
+						<label asp-for="FormComplex.Name" class="n-label">Name</label>
+						<input type="text" asp-for="FormComplex.Name" class="n-input" />
+					</div>
+					<div class="n-form-item">
+						<label asp-for="FormComplex.Age" class="n-label">Age</label>
+						<input type="number" asp-for="FormComplex.Age" class="n-input" />
+					</div>
+					<div class="n-form-item">
+						<label asp-for="FormComplex.Occupation" class="n-label">Occupation</label>
+						<input type="text" asp-for="FormComplex.Occupation" class="n-input" />
+					</div>
+					<div class="n-form-action">
+						<button type="submit" class="n-btn">Search</button>
+						<input type="hidden" name="handler" value="Complex" />
+					</div>
+				</form>
+			</div>
+			<div class="n-mt-3">
+				<table>
+					<tr>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Id)</th>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Name)</th>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Age)</th>
+						<th>@Html.DisplayNameFor(model => model.TableHeader.Occupation)</th>
+					</tr>
+@foreach (Person person in Model.TableRowsComplex)
+{
+					<tr>
+						<td>@person.Id</td>
+						<td>@person.Name</td>
+						<td>@person.Age</td>
+						<td>@person.Occupation</td>
+					</tr>
+}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

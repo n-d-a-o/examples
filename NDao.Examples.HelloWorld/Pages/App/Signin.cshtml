@@ -1,0 +1,29 @@
+﻿@page "/app/signin"
+@model PageModels.App.SigninModel
+@{
+	Layout = "_SimpleLayout";
+}
+<div class="n-page_content">
+	<h1>
+		<span>Sign in</span>
+	</h1>
+	<div>
+		<form method="post">
+			<div class="n-form-item">
+				<label asp-for="SigninForm.Name" class="n-label">Name</label>
+				<input type="text" asp-for="SigninForm.Name" class="n-input" />
+			</div>
+			<div class="n-form-message">
+				<div asp-validation-summary="All" class="n-validation-summary">
+				</div>
+			</div>
+			<div class="n-form-action">
+				<button type="submit" asp-page-handler="Signin" class="n-btn">Sign in</button>
+			</div>
+			<div class="n-form-action">
+				<a asp-page="@Routes.App.Signup" asp-route-to="@Model.To" class="n-link">Sign up</a>
+			</div>
+			<input type="hidden" asp-for="SigninForm.To" />
+		</form>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+﻿@page "/app/settings/home"
+@model PageModels.App.Settings.HomeModel
+@{
+	Layout = "_StandardLayout";
+}
+<div class="n-page_content">
+	<div class="n-mt-3">
+@if (Model.HasBlogs)
+{
+		<a asp-page="@Routes.App.Settings.ArticleList" class="n-btn">Article</a>
+}
+else
+{
+		<button disabled class="n-btn">Article</button>
+}
+	</div>
+	<div class="n-mt-3">
+		<a asp-page="@Routes.App.Settings.BlogList" class="n-btn">Blogs</a>
+	</div>
+	<div class="n-mt-3">
+		<a asp-page="@Routes.App.Settings.Account" class="n-btn">Account</a>
+	</div>
+</div>

@@ -1,0 +1,110 @@
+﻿@page "/sql-execution-method"
+@model PageModels.SqlExecutionMethodModel
+@{
+	Layout = "_SimpleLayout";
+}
+<div class="n-page_content">
+	<div class="n-toolbar">
+		<a asp-page="@Routes.Index" class="n-toolbar_back">Index</a>
+	</div>
+	<h1>
+		<span>SQL Execution Method</span>
+	</h1>
+	<div class="n-pb-6">
+		<div class="n-mt-6">
+			<table>
+				<tr>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Id)</th>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Name)</th>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Age)</th>
+					<th>@Html.DisplayNameFor(model => model.TableHeader.Occupation)</th>
+				</tr>
+@foreach (Person person in Model.TableRows)
+{
+				<tr>
+					<td>@person.Id</td>
+					<td>@person.Name</td>
+					<td>@person.Age</td>
+					<td>@person.Occupation</td>
+				</tr>
+}
+			</table>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Affect</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="post">
+					<div class="n-form-action">
+						<button type="submit" asp-page-handler="Affect" class="n-btn">Update Name</button>
+						<span class="n-ml-1">@Model.Textffect</span>
+					</div>
+					<div class="n-mt-3">
+						<span class="n-font-small">Get the number of affected rows.</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Single</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-item">
+						<label asp-for="FormSingle.Id" class="n-label">Id</label>
+						<input type="number" asp-for="FormSingle.Id" value="1" class="n-input n-input-xshort" />
+					</div>
+					<div class="n-form-action">
+						<button type="submit" class="n-btn">Get Name</button>
+						<input type="hidden" name="handler" value="Single" />
+						<span class="n-ml-1">@Model.TextSingle</span>
+					</div>
+					<div class="n-mt-3">
+						<span class="n-font-small">An exception occurs when data is not found.</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>SingleOrDefault</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-item">
+						<label asp-for="FormSingleOrDefault.Id" class="n-label">Id</label>
+						<input type="number" asp-for="FormSingleOrDefault.Id" value="1" class="n-input n-input-xshort" />
+					</div>
+					<div class="n-form-action">
+						<button type="submit" class="n-btn">Get Name</button>
+						<input type="hidden" name="handler" value="SingleOrDefault" />
+						<span class="n-ml-1">@Model.TextSingleOrDefault</span>
+					</div>
+					<div class="n-mt-3">
+						<span class="n-font-small">Get the default value when data is not found.</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="n-mt-6">
+			<hr />
+			<h3>
+				<span>Query</span>
+			</h3>
+			<div class="n-mt-3">
+				<form method="get">
+					<div class="n-form-action">
+						<button type="submit" class="n-btn">Get Name List</button>
+						<input type="hidden" name="handler" value="Query" />
+						<span class="n-ml-1">@Model.TextQuery</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
