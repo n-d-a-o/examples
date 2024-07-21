@@ -7,25 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Daos\IAccountDao_GetAccountByName.sql" />
-    <None Remove="Daos\IBlogDao_GetArticleById.sql" />
-    <None Remove="Daos\IBlogDao_GetArticlesByBlogId.sql" />
-    <None Remove="Daos\IBlogDao_GetBlogsByAccountId.sql" />
-    <None Remove="Daos\IInitializerDao_CreatePersons.sql" />
-    <None Remove="Daos\ISampleDao_Affect.sql" />
-    <None Remove="Daos\ISampleDao_Delete.sql" />
-    <None Remove="Daos\ISampleDao_GetDateTime.sql" />
-    <None Remove="Daos\ISampleDao_GetDto.sql" />
-    <None Remove="Daos\ISampleDao_GetString.sql" />
-    <None Remove="Daos\ISampleDao_GetTuple.sql" />
-    <None Remove="Daos\ISampleDao_Query.sql" />
-    <None Remove="Daos\ISampleDao_Search.sql" />
-    <None Remove="Daos\ISampleDao_SearchByComplexParameter.sql" />
-    <None Remove="Daos\ISampleDao_Single.sql" />
-    <None Remove="Daos\ISampleDao_SingleOrDefault.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
     <AdditionalFiles Include="Daos\IInitializerDao_CreatePersons.sql" />
     <AdditionalFiles Include="Daos\ISampleDao_GetString.sql" />
     <AdditionalFiles Include="Daos\ISampleDao_GetDateTime.sql" />
